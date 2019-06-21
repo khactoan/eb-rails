@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Chatworks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Api token</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chatworks.each do |chatwork| %>
+      <tr>
+        <td><%= chatwork.api_token %></td>
+        <td><%= chatwork.user %></td>
+        <td><%= link_to 'Show', chatwork %></td>
+        <td><%= link_to 'Edit', edit_chatwork_path(chatwork) %></td>
+        <td><%= link_to 'Destroy', chatwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Chatwork', new_chatwork_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Chatwork:</strong>
+  <%= @message.chatwork %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @message.content %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @message.room %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @message.time %>
+</p>
+
+<p>
+  <strong>Day of week:</strong>
+  <%= @message.day_of_week %>
+</p>
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>

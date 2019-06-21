@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Api token:</strong>
+  <%= @chatwork.api_token %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @chatwork.user %>
+</p>
+
+<%= link_to 'Edit', edit_chatwork_path(@chatwork) %> |
+<%= link_to 'Back', chatworks_path %>

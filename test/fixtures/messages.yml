@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chatwork: one
+  content: MyText
+  room: MyString
+  time: MyString
+  day_of_week: MyString
+
+two:
+  chatwork: two
+  content: MyText
+  room: MyString
+  time: MyString
+  day_of_week: MyString

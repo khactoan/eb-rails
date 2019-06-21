@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_13_073648) do
+ActiveRecord::Schema.define(version: 2019_06_21_081103) do
+
+  create_table "chatworks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "api_token"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chatworks_on_user_id"
+  end
 
   create_table "homes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -18,4 +26,29 @@ ActiveRecord::Schema.define(version: 2019_06_13_073648) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "chatwork_id"
+    t.text "content"
+    t.integer "room"
+    t.string "time"
+    t.string "day_of_week"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatwork_id"], name: "index_messages_on_chatwork_id"
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "chatworks", "users"
+  add_foreign_key "messages", "chatworks"
 end

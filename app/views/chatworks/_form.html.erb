@@ -1,0 +1,27 @@
+<%= form_with(model: chatwork, local: true) do |form| %>
+  <% if chatwork.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chatwork.errors.count, "error") %> prohibited this chatwork from being saved:</h2>
+
+      <ul>
+      <% chatwork.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :api_token %>
+    <%= form.text_field :api_token %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
